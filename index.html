@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murli Hotel • मुरली होटल</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="font-sans antialiased bg-[#F8F4EE]">
+    <!-- NAVBAR -->
+    <header id="header" 
+            class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-5 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <i class="fa-solid fa-hotel text-[#9F2A39] text-3xl"></i>
+                    <div>
+                        <span class="font-serif text-[#9F2A39] text-xl tracking-[0.065em] leading-none">MURLI</span><br>
+                        <span class="text-xs font-medium tracking-[0.065em] text-[#9F2A39] -mt-1 block">मुरली होटल</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-10 text-sm uppercase tracking-widest font-medium">
+                    <a href="#" class="hover:text-[#9F2A39] transition-colors nav-link">Home</a>
+                    <a href="#about" class="hover:text-[#9F2A39] transition-colors nav-link">About</a>
+                    <a href="#rooms" class="hover:text-[#9F2A39] transition-colors nav-link">Rooms</a>
+                    <a href="#restaurant" class="hover:text-[#9F2A39] transition-colors nav-link">Restaurant</a>
+                    <a href="#gallery" class="hover:text-[#9F2A39] transition-colors nav-link">Gallery</a>
+                    <a href="#location" class="hover:text-[#9F2A39] transition-colors nav-link">Location</a>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <button onclick="scrollToContact()" 
+                        id="call-btn"
+                        class="hidden sm:flex items-center gap-2 bg-[#9F2A39] hover:bg-[#7F212E] transition-colors text-white text-xs px-5 py-2 rounded-full font-medium">
+                        <i class="fa-solid fa-phone"></i> 098934 50855
+                    </button>
+                    
+                    <!-- Mobile menu toggle -->
+                    <button id="mobile-toggle"
+                        class="md:hidden text-[#9F2A39] text-2xl">
+                        <i class="fa-solid fa-bars" id="mobile-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" 
+         class="hidden md:hidden fixed top-16 left-0 right-0 bg-white shadow-xl z-40 py-6 px-5 border-t">
+        <div class="flex flex-col gap-4 text-sm uppercase tracking-widest font-medium">
+            <a href="#" class="py-2 nav-link">Home</a>
+            <a href="#about" class="py-2 nav-link">About Us</a>
+            <a href="#rooms" class="py-2 nav-link">Rooms</a>
+            <a href="#restaurant" class="py-2 nav-link">Restaurant</a>
+            <a href="#gallery" class="py-2 nav-link">Gallery</a>
+            <a href="#location" class="py-2 nav-link">Location</a>
+            <a href="#contact" class="py-2 nav-link">Contact</a>
+            
+            <button onclick="scrollToContact()" 
+                class="mt-3 bg-[#9F2A39] text-white py-3 rounded-xl font-medium flex items-center justify-center gap-3">
+                <i class="fa-solid fa-phone"></i> Call 098934 50855
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero" 
+             class="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+        <!-- Background image -->
+        <div 
+            id="hero-bg"
+            class="absolute inset-0 bg-cover bg-center transition-all duration-[1500ms]"
+            style="background-image: url('https://picsum.photos/id/870/2000/1400'); 
+                   filter: brightness(0.68);">
+        </div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#3F2A1E] via-[#3F2A1E]/60 to-transparent"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.065em] px-6 py-2 rounded-3xl mb-5">
+                NH-111 • Katghora • Since 2009
+            </div>
+            
+            <h1 class="font-serif text-[5.75rem] lg:text-[7rem] leading-[1.05] text-white tracking-[-0.01em] mb-3">
+                मुरली होटल<br><span class="text-[#E8C670] text-[0.68em] tracking-normal font-sans">Murli Hotel</span>
+            </h1>
+            
+            <p class="text-white/90 text-base lg:text-lg font-medium mb-8">Comfort • Hygiene • Pure Vegetarian Taste<br><span class="text-xs tracking-widest">Just 200m from New Bus Stand</span></p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="makeCall()" 
+                    id="hero-call-btn"
+                    class="bg-[#9F2A39] hover:bg-[#7F212E] transition-all px-8 py-4 rounded-full text-white flex items-center gap-3 font-semibold text-sm uppercase tracking-widest">
+                    <i class="fa-solid fa-phone-volume"></i> Call Now
+                </button>
+                
+                <button onclick="scrollToRooms()" 
+                    class="bg-transparent border border-white/80 hover:border-white text-white transition-all px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-widest">
+                    Book a Room
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll prompt -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/70 text-[10px] tracking-[0.065em]">
+            <span class="mb-1">SCROLL TO ENTER</span>
+            <i class="fa-solid fa-chevron-down animate-bounce text-base"></i>
+        </div>
+    </section>
+    
+    <!-- ABOUT -->
+    <section id="about" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Section header -->
+            <div class="flex flex-col items-center text-center mb-12">
+                <span class="inline-block text-[#E8C670] text-xs tracking-[0.065em] font-medium mb-1">EST. 2009 • KATGHORA</span>
+                <h2 class="font-serif text-[#3F2A1E] text-5xl lg:text-[3.75rem] leading-none">Where the highway<br>feels like home</h2>
+            </div>
+            
+            <!-- Story grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <!-- Left image column -->
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-[5/6] rounded-3xl overflow-hidden shadow-xl relative">
+                        <!-- Reception / lobby image -->
+                        <img id="about-image" 
+                             src="https://picsum.photos/id/312/600/850" 
+                             alt="Murli Hotel Reception" 
+                             class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                    </div>
+                    
+                    <!-- Gold accent frame -->
+                    <div class="absolute -bottom-4 -right-3 bg-[#E8C670] h-px w-28 lg:w-40"></div>
+                    <div class="absolute -bottom-3 -right-3 bg-[#E8C670] h-28 lg:h-40 w-px"></div>
+                </div>
+                
+                <!-- Content -->
+                <div class="lg:col-span-7">
+                    <div class="prose prose-stone prose-lg max-w-none">
+                        <p class="text-[#67513A] leading-relaxed text-[1.07rem]">
+                            For fifteen years, Murli Hotel has been the trusted stop for families, 
+                            truck drivers, and business travellers on NH-111. 
+                            What began as a modest dhaba has grown into Katghora’s favourite clean 
+                            and comfortable highway stay — all while keeping our promise of 
+                            <span class="font-semibold text-[#9F2A39]">“Ghar jaisa khana aur sukoon”</span>.
+                        </p>
+                    </div>
+                    
+                    <!-- Trust markers -->
+                    <div class="grid grid-cols-3 gap-6 my-10">
+                        <!-- Marker 1 -->
+                        <div class="text-center">
+                            <div class="w-11 h-px bg-[#E8C670] mx-auto mb-3"></div>
+                            <i class="fa-solid fa-shield-halved text-[#9F2A39] block mb-1 text-xl"></i>
+                            <p class="uppercase text-[10px] tracking-[0.065em] font-semibold text-[#67513A]">100% Hygienic</p>
+                        </div>
+                        <!-- Marker 2 -->
+                        <div class="text-center">
+                            <div class="w-11 h-px bg-[#E8C670] mx-auto mb-3"></div>
+                            <i class="fa-solid fa-utensils text-[#9F2A39] block mb-1 text-xl"></i>
+                            <p class="uppercase text-[10px] tracking-[0.065em] font-semibold text-[#67513A]">Pure Veg</p>
+                        </div>
+                        <!-- Marker 3 -->
+                        <div class="text-center">
+                            <div class="w-11 h-px bg-[#E8C670] mx-auto mb-3"></div>
+                            <i class="fa-solid fa-car text-[#9F2A39] block mb-1 text-xl"></i>
+                            <p class="uppercase text-[10px] tracking-[0.065em] font-semibold text-[#67513A]">Free Parking</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 text-xs uppercase tracking-widest text-[#9F2A39] font-medium">
+                        <span class="h-px w-8 bg-[#9F2A39]"></span> 
+                        3.8 ★★★☆☆ • 1,255 Google reviews
+                    </div>
+                    
+                    <button onclick="scrollToRooms()" 
+                        id="book-room-btn"
+                        class="mt-8 flex items-center justify-center gap-3 bg-[#9F2A39] hover:bg-[#7F212E] text-white font-semibold px-9 py-4 rounded-2xl transition-all duration-200 group w-full lg:w-auto">
+                        <span>Reserve your stay today</span>
+                        <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ROOMS -->
+    <section id="rooms" class="bg-[#F8F4EE] py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Header -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 lg:mb-14 gap-4">
+                <div>
+                    <span class="inline-flex items-center gap-2 text-[#9F2A39] text-xs font-medium tracking-[0.065em]">
+                        <span class="h-px bg-[#9F2A39] w-6"></span>COMFORT YOU CAN AFFORD
+                    </span>
+                    <h2 class="font-serif text-[#3F2A1E] text-[3.5rem] leading-none tracking-[-0.006em]">Rooms &amp; Suites</h2>
+                </div>
+                
+                <a href="#" onclick="fakeBookModalOpen()" 
+                   class="text-sm uppercase font-medium flex items-center gap-2 hover:text-[#9F2A39] transition-colors">
+                    Check availability <span class="inline-block h-px bg-[#9F2A39] w-6"></span><i class="fa-solid fa-chevron-right text-xs"></i>
+                </a>
+            </div>
+            
+            <!-- Rooms grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="rooms-grid">
+                <!-- Populated by JS -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <span class="bg-white shadow-sm text-xs text-[#67513A] px-5 py-2 rounded-full inline-flex items-center gap-3">
+                    <i class="fa-solid fa-car-side"></i> Free parking &amp; 24×7 security • Complimentary Wi‑Fi
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RESTAURANT -->
+    <section id="restaurant" class="bg-[#3F2A1E] text-white py-16 lg:py-24 relative overflow-hidden">
+        <!-- Decorative pattern -->
+        <div class="absolute inset-0 opacity-5 bg-[url('https://picsum.photos/id/312/1200/800')] bg-repeat"></div>
+        
+        <div class="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
+            <!-- Header -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center mb-12">
+                <div class="lg:col-span-5">
+                    <span class="inline-block text-[#E8C670] text-xs tracking-[0.065em] font-medium">PURE VEGETARIAN • SINCE 2009</span>
+                    <h2 class="font-serif text-[#E8C670] text-[3.75rem] leading-[1.05] tracking-[-0.006em]">Taste of<br>Chhattisgarh<br>on your plate</h2>
+                </div>
+                <div class="lg:col-span-7">
+                    <p class="text-[#C5AA8F] text-base">From steaming Chana Bhatura to fresh Aloo Chokha and our signature<br>Murli Special Thali — every dish is prepared with love and served piping hot.</p>
+                    
+                    <div class="mt-6 flex flex-wrap items-center gap-6 text-xs uppercase tracking-widest">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-seedling"></i> 100% Pure Veg</span>
+                        <span class="h-px bg-[#C5AA8F] w-6"></span>
+                        <span>Breakfast 7–11 am</span>
+                        <span>Lunch 12–4 pm</span>
+                        <span>Dinner 7–11 pm</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Signature dishes -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-5 border-b border-[#59453B] pb-3">
+                    <span class="uppercase text-xs font-medium tracking-[0.065em] text-[#E8C670]">Signature dishes</span>
+                    <button onclick="viewFullMenu()" 
+                        id="menu-btn"
+                        class="text-xs hover:text-[#E8C670] transition-colors flex items-center gap-2 text-[#C5AA8F]">
+                        Full Menu <span class="inline-block transition-transform">↓</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Dishes grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="dishes-grid">
+                <!-- Populated by JS -->
+            </div>
+            
+            <!-- Restaurant ambience banner -->
+            <div class="mt-16 bg-[#59453B] rounded-3xl overflow-hidden lg:flex items-center">
+                <!-- Image -->
+                <div class="lg:w-5/12 h-64 lg:h-auto bg-cover bg-center" 
+                     style="background-image: url('https://picsum.photos/id/312/600/380');">
+                </div>
+                
+                <!-- Text block -->
+                <div class="lg:w-7/12 px-7 py-9 lg:py-10 lg:px-12">
+                    <div class="flex items-center gap-3 text-[#E8C670] text-xs mb-1 tracking-widest">
+                        <span class="h-px bg-[#E8C670] flex-1"></span> FAMILY • TRAVELLERS • LOCAL FAVOURITE
+                    </div>
+                    <h4 class="font-serif text-3xl leading-tight mb-3">The only place on NH-111<br>where even truck drivers<br>ask for a second serving.</h4>
+                    <p class="text-xs uppercase text-[#C5AA8F] tracking-[0.065em]">Seating capacity: 120 • Live tandoor • 24-hour service for highway guests</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- REVIEWS -->
+    <section id="reviews" class="py-16 lg:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Rating banner -->
+            <div class="bg-[#F8F4EE] rounded-3xl py-7 px-6 lg:px-10 mb-14 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-1 text-[#E8C670] text-xl mb-px">
+                        ★★★☆☆
+                    </div>
+                    <p class="font-semibold text-[#3F2A1E] text-xl">3.8 on Google</p>
+                    <p class="text-xs text-[#67513A] tracking-widest">1,255 verified reviews</p>
+                </div>
+                
+                <div class="h-px lg:h-9 lg:w-px bg-[#D2B88F] mx-4"></div>
+                
+                <div class="flex-1 text-xs uppercase">
+                    <span class="bg-white px-4 py-px rounded-full inline-block mb-px">“Cleanest hotel on this highway”</span><br>
+                    <span class="bg-white px-4 py-px rounded-full inline-block">“Best Chhattisgarhi thali in Katghora”</span>
+                </div>
+                
+                <button onclick="scrollToContact()" 
+                    class="bg-[#9F2A39] text-white px-7 py-3 rounded-2xl text-sm hover:bg-[#7F212E] transition-colors whitespace-nowrap">
+                    Write a review
+                </button>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="font-serif text-[#3F2A1E] text-[3.25rem] leading-none">Travellers who<br>felt at home</h2>
+                    <div class="hidden sm:flex items-center gap-3">
+                        <button id="testimonial-prev"
+                            class="w-9 h-9 border border-[#9F2A39] rounded-full flex items-center justify-center hover:bg-[#9F2A39] hover:text-white transition-colors">
+                            ←
+                        </button>
+                        <button id="testimonial-next"
+                            class="w-9 h-9 bg-[#9F2A39] text-white rounded-full flex items-center justify-center hover:bg-[#7F212E]">
+                            →
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial carousel -->
+            <div class="overflow-hidden" id="testimonial-wrapper">
+                <!-- JS populated carousel -->
+                <div id="testimonials" class="flex transition-transform duration-500 ease-out">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+            
+            <!-- Trust logos -->
+            <div class="mt-16 border-t border-dashed pt-7">
+                <p class="uppercase text-[10px] text-center tracking-[0.065em] text-[#67513A] mb-4">Featured in</p>
+                <div class="flex justify-center flex-wrap items-center gap-x-10 gap-y-6 opacity-50">
+                    <span class="font-serif text-base">Dainik Bhaskar</span>
+                    <span class="font-medium">NH-111 Highway Guide</span>
+                    <span class="uppercase text-xs">Chhattisgarh Tourism</span>
+                    <span class="font-serif">The Better India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GALLERY -->
+    <section id="gallery" class="bg-[#3F2A1E] py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Header -->
+            <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-10">
+                <div>
+                    <span class="text-[#E8C670] text-xs font-medium tracking-[0.065em]">MOMENTS AT MURLI</span>
+                    <h2 class="font-serif text-white text-[3.75rem] leading-none tracking-[-0.01em]">Captured with care</h2>
+                </div>
+                
+                <button onclick="toggleLightbox()" id="view-all-gallery-btn"
+                    class="mt-4 lg:mt-0 flex items-center gap-2 text-[#E8C670] text-sm hover:underline">
+                    View full gallery <span class="text-xs">↗</span>
+                </button>
+            </div>
+            
+            <!-- Masonry gallery grid -->
+            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4" id="gallery-grid">
+                <!-- JS populated -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- LOCATION -->
+    <section id="location" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Top info -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Text info -->
+                <div class="lg:col-span-5">
+                    <div class="sticky top-28">
+                        <span class="inline-flex bg-[#F8F4EE] text-[#9F2A39] uppercase text-xs tracking-[0.065em] px-5 py-2 rounded-3xl mb-4">National Highway 111</span>
+                        
+                        <h2 class="font-serif text-[#3F2A1E] text-[3.5rem] leading-tight tracking-[-0.01em] mb-3">200 metres from<br>New Bus Stand,<br>Katghora</h2>
+                        
+                        <p class="text-[#67513A] text-sm mb-6">New Bus Stand, NH-111,<br>Katghora, Chhattisgarh 495445</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="openGoogleMaps()" 
+                                id="maps-btn"
+                                class="bg-[#9F2A39] text-white text-sm px-6 py-3 rounded-2xl flex-1 flex items-center justify-center gap-3 hover:bg-[#7F212E]">
+                                <i class="fa-solid fa-map-location-dot"></i> Open in Maps
+                            </button>
+                            
+                            <button onclick="getDirections()" 
+                                class="border border-[#9F2A39] text-[#9F2A39] text-sm px-6 py-3 rounded-2xl flex-1 hover:bg-[#F8F4EE]">
+                                Get Directions
+                            </button>
+                        </div>
+                        
+                        <div class="mt-8 text-xs text-[#9F2A39] font-medium flex items-center gap-4 border-t border-[#EDE5D8] pt-6">
+                            <span><i class="fa-solid fa-car"></i> 4 min from Bus Stand</span>
+                            <span><i class="fa-solid fa-train"></i> 42 min from Korba Railway Station</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map area -->
+                <div class="lg:col-span-7">
+                    <!-- Fake interactive map -->
+                    <div class="relative bg-[#EDE5D8] rounded-3xl overflow-hidden shadow-inner h-[380px] lg:h-[460px] flex items-center justify-center">
+                        <!-- Static map simulation -->
+                        <div id="map-placeholder"
+                             class="w-full h-full bg-[url('https://picsum.photos/id/870/900/520')] bg-cover relative">
+                            
+                            <!-- Overlay pin -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <!-- Pin -->
+                                <div class="relative">
+                                    <!-- Shadow -->
+                                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-1 bg-black/30 rounded-full blur-sm"></div>
+                                    <!-- Pin body -->
+                                    <div class="bg-[#9F2A39] w-6 h-7 rounded-t-full relative flex items-center justify-center -translate-y-1">
+                                        <!-- Inner circle -->
+                                        <div class="bg-white w-2 h-2 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Map label -->
+                            <div class="absolute bottom-5 left-5 bg-white shadow-sm rounded-xl py-2 px-4 text-xs leading-none">
+                                <span class="block text-[#9F2A39] font-semibold">Murli Hotel</span>
+                                <span class="text-[#67513A] text-[11px]">NH-111, Katghora</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-[11px] text-[#67513A] mt-4 px-1">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-bus"></i> New Bus Stand 200m</span>
+                        <span class="text-[#E8C670] font-medium">•</span>
+                        <span>Highway entry 30m</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section id="contact" class="bg-[#F8F4EE] py-14 lg:py-20">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+            <!-- Phone hero banner -->
+            <div class="bg-[#9F2A39] rounded-[2.25rem] py-10 lg:py-14 px-6 lg:px-12 mb-12 relative overflow-hidden">
+                <!-- Background motif -->
+                <div class="absolute inset-0 opacity-10" 
+                     style="background-image: linear-gradient(45deg, transparent 45%, #E8C670 45%, #E8C670 55%, transparent 55%); background-size: 28px 28px;"></div>
+                
+                <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-5 relative z-10">
+                    <div class="flex items-center gap-4 text-white">
+                        <i class="fa-solid fa-phone text-4xl"></i>
+                        <div>
+                            <span class="block text-xs tracking-[0.065em] opacity-75">Call us anytime — 24×7</span>
+                            <a href="tel:09893450855" id="big-phone"
+                               class="font-mono text-[2.35rem] lg:text-[3rem] leading-none font-semibold hover:underline">098934 50855</a>
+                        </div>
+                    </div>
+                    
+                    <button onclick="makeCall()" 
+                        class="bg-white hover:bg-[#E8C670] transition-colors text-[#9F2A39] font-semibold px-9 py-4 rounded-2xl flex-shrink-0 flex items-center gap-3 text-sm uppercase tracking-widest">
+                        <i class="fa-solid fa-phone-volume"></i><span>Dial now</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Contact form &amp; details -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-14 gap-y-10">
+                <!-- Form -->
+                <div class="lg:col-span-7 bg-white rounded-3xl shadow-sm p-7 lg:p-9">
+                    <h3 class="font-medium text-[#3F2A1E] mb-1 tracking-widest text-xs">ENQUIRY / BOOKING</h3>
+                    <p class="font-serif text-[#3F2A1E] text-[2.15rem] leading-tight mb-7">Let us know when<br>you’re arriving</p>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs tracking-widest font-medium text-[#67513A] mb-2">NAME</label>
+                                <input type="text" id="form-name" 
+                                       class="bg-[#F8F4EE] border-0 w-full rounded-xl py-3 px-4 text-sm focus:outline-none" 
+                                       value="Rahul Sharma" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs tracking-widest font-medium text-[#67513A] mb-2">PHONE</label>
+                                <input type="tel" id="form-phone" 
+                                    class="bg-[#F8F4EE] border-0 w-full rounded-xl py-3 px-4 text-sm focus:outline-none" 
+                                    value="98765 43210" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs tracking-widest font-medium text-[#67513A] mb-2">CHECK-IN / CHECK-OUT</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="date" id="checkin" value="2025-08-12" 
+                                       class="bg-[#F8F4EE] border-0 rounded-xl py-3 px-4 text-sm">
+                                <input type="date" id="checkout" value="2025-08-14"
+                                       class="bg-[#F8F4EE] border-0 rounded-xl py-3 px-4 text-sm">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs tracking-widest font-medium text-[#67513A] mb-2">ROOM TYPE</label>
+                            <select id="room-type-select" 
+                                class="bg-[#F8F4EE] border-0 w-full rounded-xl py-[13px] px-4 text-sm">
+                                <option>Deluxe Double (₹1499)</option>
+                                <option>Family Suite (₹2299)</option>
+                                <option>AC Triple (₹1899)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit"
+                            id="submit-btn"
+                            class="bg-[#9F2A39] hover:bg-[#7F212E] w-full text-white py-4 rounded-2xl font-semibold transition-all active:scale-[0.985]">
+                            Send Booking Request
+                        </button>
+                    </form>
+                    
+                    <p class="text-[10px] text-center text-[#67513A] mt-6">We usually reply within 20 minutes</p>
+                </div>
+                
+                <!-- Side info -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <!-- Visit us -->
+                    <div class="bg-[#3F2A1E] text-white rounded-3xl p-7 flex-1">
+                        <i class="fa-solid fa-location-dot text-[#E8C670] text-xl mb-4 block"></i>
+                        <div class="uppercase text-[#E8C670] text-xs font-medium tracking-[0.065em] mb-px">Visit us at</div>
+                        <address class="not-italic text-sm leading-relaxed">
+                            New Bus Stand,<br>National Highway 111,<br>Katghora, Chhattisgarh<br>495445
+                        </address>
+                    </div>
+                    
+                    <!-- Check-in info -->
+                    <div class="bg-white border border-[#EDE5D8] rounded-3xl p-7 flex-1">
+                        <div class="uppercase text-[#9F2A39] text-xs font-medium tracking-widest mb-1">Front desk</div>
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="bg-[#E8C670] h-px flex-1"></span><span class="font-mono text-xs">24×7</span><span class="bg-[#E8C670] h-px flex-1"></span>
+                        </div>
+                        
+                        <div class="text-xs leading-loose">
+                            <span class="block font-medium">Check-in</span><span class="text-[#9F2A39]">12:00 PM</span><br>
+                            <span class="block font-medium">Check-out</span><span class="text-[#9F2A39]">11:00 AM</span>
+                        </div>
+                        
+                        <div class="h-px bg-[#EDE5D8] my-5"></div>
+                        
+                        <div class="flex items-center text-[11px] text-[#67513A]">
+                            <i class="fa-solid fa-wifi mr-2"></i> Free Wi‑Fi<br>
+                            <i class="fa-solid fa-car mx-3"></i> Free Parking
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="bg-[#3F2A1E] text-[#C5AA8F]">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8 pt-14 pb-8">
+            <!-- Top footer -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-y-10">
+                <!-- Brand column -->
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-x-3 text-[#E8C670] mb-3">
+                        <i class="fa-solid fa-hotel text-3xl"></i>
+                        <span class="font-serif text-3xl tracking-[0.065em]">MURLI</span>
+                    </div>
+                    <span class="block text-xs tracking-[0.065em] text-[#E8C670]/75">मुरली होटल</span>
+                    
+                    <p class="mt-5 text-xs leading-relaxed pr-8">A clean &amp; caring stop on the<br>Korba–Katghora highway.<br>Serving families and travellers<br>with love since 2009.</p>
+                    
+                    <div class="mt-7 flex gap-5 text-base">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
+                
+                <!-- Quick links -->
+                <div class="md:col-span-2">
+                    <p class="uppercase text-[#E8C670] text-xs font-medium tracking-[0.065em] mb-6">Quick links</p>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#rooms" class="hover:text-[#E8C670] transition-colors">Rooms &amp; Rates</a></li>
+                        <li><a href="#restaurant" class="hover:text-[#E8C670] transition-colors">Restaurant</a></li>
+                        <li><a href="#gallery" class="hover:text-[#E8C670] transition-colors">Gallery</a></li>
+                        <li><a href="#location" class="hover:text-[#E8C670] transition-colors">How to reach</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact info -->
+                <div class="md:col-span-3">
+                    <p class="uppercase text-[#E8C670] text-xs font-medium tracking-[0.065em] mb-6">Reach us</p>
+                    <a href="tel:09893450855" class="block hover:text-white transition-colors mb-5 font-mono text-lg">098934 50855</a>
+                    
+                    <div class="text-xs">
+                        New Bus Stand,<br>National Highway 111<br>Katghora – 495445<br><span class="text-[#E8C670]">Chhattisgarh</span>
+                    </div>
+                </div>
+                
+                <!-- Special message -->
+                <div class="md:col-span-2 bg-[#59453B] rounded-2xl p-6 text-xs flex flex-col justify-between h-full">
+                    <span class="text-[#E8C670] text-[11px] leading-relaxed">“We don’t just give you a room.<br>We give you peace after a long<br>journey on the highway.”</span>
+                    
+                    <span class="block text-[#E8C670] text-[10px] mt-auto font-medium">— Mahesh Patel<br><span class="opacity-60">Owner, Murli Hotel</span></span>
+                </div>
+            </div>
+            
+            <!-- Bottom bar -->
+            <div class="border-t border-[#59453B] mt-14 pt-6 flex flex-wrap items-center justify-between text-xs">
+                <span class="text-[#C5AA8F]/70">© Murli Hotel 2009–2025. Made with respect for every traveller.</span>
+                
+                <span class="text-[#E8C670] text-xs mt-3 md:mt-0">Serving Katghora with care &amp; comfort</span>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[999]">
+        <div onclick="event.stopImmediatePropagation()" 
+             id="modal-content"
+             class="bg-white rounded-3xl max-w-md w-full mx-5 overflow-hidden">
+            
+            <!-- Filled by JS -->
+            
+        </div>
+    </div>
+    
+    <!-- Gallery Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-[110] flex items-center justify-center">
+        <button onclick="toggleLightbox()" id="close-lightbox"
+            class="absolute top-6 right-6 text-white text-4xl z-10">✕</button>
+        
+        <div class="relative max-w-4xl w-full px-5">
+            <!-- Dynamic image shown here -->
+            <img id="lightbox-image" 
+                 src="" 
+                 alt="Gallery image" 
+                 class="max-h-[82vh] mx-auto rounded-2xl shadow-2xl object-contain">
+            
+            <div class="text-center text-[#E8C670] text-xs tracking-widest mt-4" id="lightbox-caption">
+                Deluxe Room • Murli Hotel
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tailwind script already injected via CDN
+        
+        // Sample room data
+        const rooms = [
+            {
+                id: 1,
+                title: "Deluxe Double",
+                price: "1499",
+                size: "280 sq.ft",
+                image: "https://picsum.photos/id/870/600/380",
+                amenities: ["AC", "WiFi", "TV", "King Bed"],
+                persons: "2"
+            },
+            {
+                id: 2,
+                title: "Family Suite",
+                price: "2299",
+                size: "410 sq.ft",
+                image: "https://picsum.photos/id/312/600/380",
+                amenities: ["AC", "WiFi", "TV", "Sofa Bed"],
+                persons: "4"
+            },
+            {
+                id: 3,
+                title: "AC Triple",
+                price: "1899",
+                size: "310 sq.ft",
+                image: "https://picsum.photos/id/106/600/380",
+                amenities: ["AC", "WiFi", "TV"],
+                persons: "3"
+            }
+        ];
+        
+        // Signature dishes
+        const signatureDishes = [
+            {
+                name: "Murli Special Thali",
+                price: "₹210",
+                desc: "Dal, 3 sabzi, rice, roti, papad &amp; chhena",
+                img: "https://picsum.photos/id/312/280/160"
+            },
+            {
+                name: "Paneer Butter Masala",
+                price: "₹260",
+                desc: "Fresh cottage cheese in tomato gravy",
+                img: "https://picsum.photos/id/431/280/160"
+            },
+            {
+                name: "Chhattisgarhi Aloo Chokha",
+                price: "₹120",
+                desc: "Smoky mashed potatoes with mustard oil",
+                img: "https://picsum.photos/id/315/280/160"
+            }
+        ];
+        
+        // Testimonials data
+        const testimonials = [
+            {
+                name: "Sunil Yadav",
+                role: "Truck driver, Bilaspur",
+                rating: 5,
+                text: "Stopped here at 2 am. Cleanest sheets I’ve seen on any highway dhaba. Hot tea &amp; poha at 3 am. Felt like family. Will always stop at Murli on my Korba route.",
+                date: "3 days ago"
+            },
+            {
+                name: "Neelam Sahu",
+                role: "Family of 5, Raipur",
+                rating: 4,
+                text: "We stayed one night en-route to Amarkantak. Two connecting rooms, very safe, clean toilets &amp; the restaurant served excellent kadhi-chawal for kids. Location next to bus stand is perfect.",
+                date: "2 weeks ago"
+            }
+        ];
+        
+        // Gallery images
+        const galleryImages = [
+            { url: "https://picsum.photos/id/870/600/420", caption: "Front view at sunrise", category: "Exterior" },
+            { url: "https://picsum.photos/id/312/600/420", caption: "Reception &amp; lobby", category: "Interior" },
+            { url: "https://picsum.photos/id/106/600/420", caption: "Deluxe Double Room", category: "Rooms" },
+            { url: "https://picsum.photos/id/431/600/420", caption: "Tandoor in action", category: "Restaurant" }
+        ];
+        
+        let currentTestimonialIndex = 0;
+        let currentLightboxIndex = 0;
+        
+        // Render rooms
+        function renderRooms() {
+            let html = '';
+            
+            rooms.forEach(room => {
+                html += `
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm group">
+                        <!-- Room image -->
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="${room.image}" alt="${room.title}" 
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            
+                            <div class="absolute top-4 right-4 bg-white px-3 py-px text-xs font-semibold rounded-full shadow text-[#9F2A39]">
+                                ₹${room.price}
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-semibold text-[#3F2A1E] text-lg">${room.title}</h5>
+                                <span class="bg-[#F8F4EE] text-[#67513A] text-xs px-3 py-px rounded-full">${room.persons} guests</span>
+                            </div>
+                            
+                            <p class="text-[#67513A] text-xs">${room.size}</p>
+                            
+                            <!-- Amenities -->
+                            <div class="flex gap-3 my-5">
+                                ${room.amenities.map(am => `
+                                    <span class="inline-flex items-center justify-center h-6 w-6 bg-[#F8F4EE] rounded text-[#9F2A39] text-[11px]">
+                                        <i class="fa-solid ${getAmenityIcon(am)}"></i>
+                                    </span>
+                                `).join("")}
+                            </div>
+                            
+                            <button onclick="fakeBookRoom(${room.id})" 
+                                class="bg-[#9F2A39] hover:bg-[#7F212E] text-xs w-full py-3 text-white rounded-2xl transition-colors text-center block">
+                                Book for tonight →
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById("rooms-grid").innerHTML = html;
+        }
+        
+        function getAmenityIcon(am) {
+            if (am === "AC") return "fa-snowflake";
+            if (am === "WiFi") return "fa-wifi";
+            if (am === "TV") return "fa-tv";
+            if (am === "King Bed") return "fa-bed";
+            if (am === "Sofa Bed") return "fa-couch";
+            return "fa-check";
+        }
+        
+        // Render dishes
+        function renderDishes() {
+            let html = '';
+            
+            signatureDishes.forEach(dish => {
+                html += `
+                    <div class="bg-[#59453B] rounded-2xl overflow-hidden group">
+                        <div class="h-36 overflow-hidden">
+                            <img src="${dish.img}" alt="${dish.name}" 
+                            class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105">
+                        </div>
+                        <div class="px-4 py-5">
+                            <div class="flex items-baseline justify-between">
+                                <span class="font-medium text-sm">${dish.name}</span>
+                                <span class="text-[#E8C670] font-mono text-xs">${dish.price}</span>
+                            </div>
+                            <p class="text-[#C5AA8F] text-[13px] leading-tight line-clamp-2 mt-px">${dish.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById("dishes-grid").innerHTML = html;
+        }
+        
+        // Render testimonials
+        function renderTestimonials() {
+            let html = '';
+            
+            testimonials.forEach(testimonial => {
+                let starsHTML = '';
+                for (let i = 0; i < testimonial.rating; i++) {
+                    starsHTML += `<span class="text-[#E8C670]">★</span>`;
+                }
+                
+                html += `
+                    <div class="min-w-full px-3">
+                        <div class="bg-[#F8F4EE] rounded-3xl p-7 lg:p-8">
+                            <div class="flex mb-4">${starsHTML}</div>
+                            <p class="italic text-[#67513A] leading-relaxed">"${testimonial.text}"</p>
+                            
+                            <div class="mt-8 flex items-center gap-3">
+                                <div class="bg-[#9F2A39] h-px w-6"></div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-[#3F2A1E]">${testimonial.name}</span>
+                                    <span class="text-[#9F2A39] text-[11px]">${testimonial.role}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById("testimonials").innerHTML = html;
+        }
+        
+        // Testimonial carousel controls
+        function updateTestimonialCarousel() {
+            const offset = currentTestimonialIndex * -100;
+            document.getElementById("testimonials").style.transform = `translateX(${offset}%)`;
+        }
+        
+        function initTestimonialSlider() {
+            document.getElementById("testimonial-prev").addEventListener("click", () => {
+                currentTestimonialIndex = Math.max(0, currentTestimonialIndex - 1);
+                updateTestimonialCarousel();
+            });
+            
+            document.getElementById("testimonial-next").addEventListener("click", () => {
+                currentTestimonialIndex = Math.min(testimonials.length - 1, currentTestimonialIndex + 1);
+                updateTestimonialCarousel();
+            });
+        }
+        
+        // Render gallery grid
+        function renderGallery() {
+            let html = '';
+            
+            galleryImages.forEach((item, i) => {
+                html += `
+                    <div onclick="openLightbox(${i})" 
+                         class="relative mb-4 break-inside-avoid cursor-pointer group">
+                        <img src="${item.url}" alt="${item.caption}" 
+                             class="rounded-2xl w-full shadow-md transition-all duration-300 group-hover:shadow-xl">
+                        
+                        <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl flex items-end px-3 pb-2 opacity-0 group-hover:opacity-100 transition-all">
+                            <span class="text-white text-[11px] tracking-widest">${item.caption}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById("gallery-grid").innerHTML = html;
+        }
+        
+        // Lightbox controls
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById("lightbox-image").src = galleryImages[index].url;
+            document.getElementById("lightbox-caption").innerText = galleryImages[index].caption;
+            document.getElementById("lightbox").classList.remove("hidden");
+            
+            // Disable scroll on body
+            document.body.style.overflow = "hidden";
+        }
+        
+        function toggleLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.toggle("hidden");
+            document.body.style.overflow = "auto";
+        }
+        
+        // Fake booking modal
+        function fakeBookModalOpen() {
+            const modalHTML = `
+                <div class="px-6 py-6">
+                    <div class="flex justify-between items-center mb-6 border-b pb-4">
+                        <span class="font-serif text-xl">Book your room</span>
+                        <button onclick="closeBookingModal()" id="modal-close-btn"
+                            class="text-xl text-[#9F2A39]">✕</button>
+                    </div>
+                    
+                    <div class="text-xs uppercase text-[#67513A] tracking-[0.065em] mb-1">Tonight • 12 Aug</div>
+                    <div class="font-semibold text-[#3F2A1E] text-lg mb-7">3 rooms available</div>
+                    
+                    <div class="space-y-4">
+                        ${rooms.map(room => `
+                            <div onclick="selectRoomToBook(${room.id})" id="room-option-${room.id}" 
+                                 class="flex gap-4 border border-transparent hover:border-[#9F2A39] rounded-xl p-3 cursor-pointer transition-all active-room">
+                                <img src="${room.image}" alt="" class="h-14 w-14 object-cover rounded-lg">
+                                <div class="flex-1 text-xs">
+                                    <span class="font-semibold">${room.title}</span><br>
+                                    <span class="text-[#9F2A39]">₹${room.price} • ${room.persons} adults</span>
+                                </div>
+                            </div>
+                        `).join("")}
+                    </div>
+                    
+                    <button onclick="confirmBooking()" id="confirmBookingBtn"
+                        class="mt-8 bg-[#9F2A39] w-full py-4 text-white font-semibold rounded-2xl text-sm">Confirm booking for ₹1,499 • Pay at hotel</button>
+                    
+                    <div class="text-[10px] text-center text-[#67513A] mt-6">Free cancellation until 11am</div>
+                </div>
+            `;
+            
+            document.getElementById("modal-content").innerHTML = modalHTML;
+            document.getElementById("bookingModal").classList.remove("hidden");
+            
+            // Set first room as active
+            setTimeout(() => {
+                document.getElementById("room-option-1").classList.add("border-[#9F2A39]");
+            }, 10);
+        }
+        
+        let selectedRoomId = 1;
+        
+        function selectRoomToBook(id) {
+            selectedRoomId = id;
+            
+            rooms.forEach(room => {
+                const el = document.getElementById(`room-option-${room.id}`);
+                if (el) {
+                    if (room.id === id) {
+                        el.classList.add("border-[#9F2A39]");
+                    } else {
+                        el.classList.remove("border-[#9F2A39]");
+                    }
+                }
+            });
+        }
+        
+        function confirmBooking() {
+            const btn = document.getElementById("confirmBookingBtn");
+            
+            const originalText = btn.textContent;
+            
+            btn.style.pointerEvents = "none";
+            btn.textContent = "✓ Booking confirmed!";
+            btn.classList.remove("bg-[#9F2A39]");
+            btn.classList.add("bg-emerald-600");
+            
+            setTimeout(() => {
+                alert("Thank you!\n\nYour booking request #MH-7841 has been received.\nMurli Hotel will call you shortly on 098934 50855.\n\nNamaste 🙏");
+                closeBookingModal();
+            }, 580);
+        }
+        
+        function closeBookingModal() {
+            document.getElementById("bookingModal").classList.add("hidden");
+        }
+        
+        function fakeBookRoom(id) {
+            selectedRoomId = id;
+            fakeBookModalOpen();
+        }
+        
+        // Make a phone call simulation
+        function makeCall() {
+            const phone = "09893450855";
+            
+            // Create temporary link for mobile
+            const a = document.createElement("a");
+            a.setAttribute("href", `tel:${phone}`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            // Toast simulation
+            showToast("Connecting to Murli Hotel front desk...");
+        }
+        
+        function showToast(msg) {
+            let toastEl = document.createElement("div");
+            toastEl.textContent = msg;
+            toastEl.style.position = "fixed";
+            toastEl.style.bottom = "20px";
+            toastEl.style.left = "50%";
+            toastEl.style.transform = "translateX(-50%)";
+            toastEl.style.zIndex = "9999";
+            toastEl.style.backgroundColor = "#9F2A39";
+            toastEl.style.color = "white";
+            toastEl.style.padding = "12px 22px";
+            toastEl.style.borderRadius = "9999px";
+            toastEl.style.fontSize = "14px";
+            document.body.appendChild(toastEl);
+            
+            setTimeout(() => {
+                toastEl.style.transition = "all 0.3s ease";
+                toastEl.style.opacity = "0";
+                setTimeout(() => toastEl.remove(), 280);
+            }, 2100);
+        }
+        
+        function scrollToRooms() {
+            document.getElementById("rooms").scrollIntoView({
+                behavior:'smooth'
+            });
+        }
+        
+        function scrollToContact() {
+            document.getElementById("contact").scrollIntoView({
+                behavior:'smooth'
+            });
+        }
+        
+        function viewFullMenu() {
+            showToast("Opening full restaurant menu (Pure Vegetarian) • 43 items");
+            
+            document.getElementById("menu-btn").innerHTML = 
+                `<span class="text-emerald-400">✓ Menu opened in new tab</span>`;
+            
+            setTimeout(() => {
+                document.getElementById("menu-btn").innerHTML = 
+                    `Full Menu <span class="inline-block transition-transform">↗</span>`;
+            }, 2600);
+        }
+        
+        function openGoogleMaps() {
+            window.open("https://maps.app.goo.gl/exampleMurliHotelKatghora", "_blank");
+            showToast("Opening Google Maps • New Bus Stand, Katghora");
+        }
+        
+        function getDirections() {
+            showToast("Launching Google Maps directions from your location...");
+            
+            setTimeout(() => {
+                alert("Directions to Murli Hotel:\n\n1. Take NH-111 towards Katghora\n2. Turn left just after the New Bus Stand flyover\n3. Murli Hotel is the second building on your right.\n\nEstimated time: 1 min from Bus Stand");
+            }, 280);
+        }
+        
+        // Contact form fake submission
+        function initContactForm() {
+            document.getElementById("contact-form").addEventListener("submit", function(e){
+                e.preventDefault();
+                
+                const btn = document.getElementById("submit-btn");
+                const originalHTML = btn.innerHTML;
+                
+                btn.style.width = btn.offsetWidth + "px";
+                btn.innerHTML = `<span class="inline-flex items-center"><i class="fa-solid fa-check mr-2"></i>Sent successfully!</span>`;
+                btn.classList.remove("bg-[#9F2A39]");
+                btn.classList.add("bg-emerald-500");
+                
+                setTimeout(() => {
+                    alert("Thank you, Rahul Sharma!\n\nYour booking request for 12–14 Aug has been received.\nThe Murli team will confirm availability on 098934 50855 within 15 minutes.");
+                    
+                    // Reset
+                    btn.innerHTML = originalHTML;
+                    btn.classList.add("bg-[#9F2A39]");
+                    btn.classList.remove("bg-emerald-500");
+                    document.getElementById("contact-form").reset();
+                }, 1250);
+            });
+        }
+        
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const toggleBtn = document.getElementById("mobile-toggle");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const icon = document.getElementById("mobile-icon");
+            
+            toggleBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                
+                if (!mobileMenu.classList.contains("hidden")) {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+                } else {
+                    icon.classList.add("fa-bars");
+                    icon.classList.remove("fa-xmark");
+                }
+            });
+        }
+        
+        // Navbar scroll effect
+        function initHeaderScroll() {
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 80) {
+                    document.getElementById("header").classList.add("shadow-md");
+                } else {
+                    document.getElementById("header").classList.remove("shadow-md");
+                }
+            });
+        }
+        
+        // Close modals
+        function initModals() {
+            // Booking modal
+            document.getElementById("bookingModal").addEventListener("click", function(e){
+                if (e.target === this) {
+                    this.classList.add("hidden");
+                }
+            });
+            
+            // Lightbox
+            document.getElementById("lightbox").addEventListener("click", function(e){
+                if (e.target === this) {
+                    toggleLightbox();
+                }
+            });
+        }
+        
+        // Keyboard support
+        window.addEventListener("keydown", function(e){
+            if (e.key === "Escape") {
+                const bookingModal = document.getElementById("bookingModal");
+                const lightboxEl = document.getElementById("lightbox");
+                
+                if (!bookingModal.classList.contains("hidden")) {
+                    bookingModal.classList.add("hidden");
+                }
+                if (!lightboxEl.classList.contains("hidden")) {
+                    toggleLightbox();
+                }
+            }
+        });
+        
+        // Fake data for "Book Now" room modal selection
+        function initFakeBookingButton() {
+            // Already handled in fakeBookModalOpen()
+        }
+        
+        // Main initialization
+        window.onload = () => {
+            renderRooms();
+            renderDishes();
+            renderTestimonials();
+            renderGallery();
+            
+            initTestimonialSlider();
+            initMobileMenu();
+            initHeaderScroll();
+            initContactForm();
+            initModals();
+            initFakeBookingButton();
+            
+            // Default active nav link
+            console.log("%cNamaste! Welcome to Murli Hotel, Katghora.\nClean rooms. Warm thalis. Always open for highway travellers.\n— Team Murli", 
+                "color:#9F2A39;font-weight:500;font-size:13px");
+        }
+    </script>
+</body>
+</html>
